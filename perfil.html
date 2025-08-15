@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil · PublicaLibros</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <div class="brand">Publica<span>Libros</span></div>
+    <div class="links">
+      <a href="index.html" class="">Home</a>
+      <a href="perfil.html" class="active">Perfil</a>
+      <a href="libros.html" class="">Libros</a>
+      <a href="creditos.html" class="">Créditos</a>
+    </div>
+  </div>
+</nav>
+
+  <main class="container">
+
+<header class="hero">
+  <div class="card">
+    <span class="label">Tu espacio</span>
+    <h1>Perfil de usuario</h1>
+    <p class="small">*Este formulario es solo de diseño (no envía datos).</p>
+  </div>
+</header>
+
+<section class="card">
+  <form onsubmit="event.preventDefault(); alert('Solo es diseño 🙂');">
+    <div class="grid cols-2">
+      <div>
+        <label for="nombre" class="label">Nombre</label>
+        <input id="nombre" name="nombre" placeholder="Escribe tu nombre" />
+      </div>
+      <div>
+        <label for="apellido" class="label">Apellido</label>
+        <input id="apellido" name="apellido" placeholder="Escribe tu apellido" />
+      </div>
+    </div>
+    <div style="margin-top:14px;">
+      <button type="submit">Guardar</button>
+      <span class="small">Vista previa: <span id="preview" class="kbd">Nombre Apellido</span></span>
+    </div>
+  </form>
+</section>
+
+<script>
+const nombre = document.getElementById('nombre');
+const apellido = document.getElementById('apellido');
+const preview = document.getElementById('preview');
+function updatePreview() {
+  const n = (nombre.value || 'Nombre').trim();
+  const a = (apellido.value || 'Apellido').trim();
+  preview.textContent = `${{n}} ${{a}}`;
+}
+[nombre, apellido].forEach(i => i.addEventListener('input', updatePreview));
+</script>
+
+  </main>
+  <footer>© PublicaLibros — Proyecto de ejemplo</footer>
+</body>
+</html>
